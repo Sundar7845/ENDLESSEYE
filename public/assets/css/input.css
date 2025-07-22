@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@theme{
+    --color-sage:#925234;
+}
+
+@font-face {
+    font-family: Alga;
+    src: url('../fonts/Alga-Light.otf') format('opentype');
+    font-display: swap;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Alga;
+    src: url('../fonts/Alga-Medium.otf') format('opentype');
+    font-display: swap;
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url('../fonts/HelveticaNeue-Light.otf') format('opentype');
+    font-display: swap;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url('../fonts/HelveticaNeue-Medium.otf') format('opentype');
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Copperplate;
+    src: url('../fonts/Copperplate-Light.otf') format('opentype');
+    font-display: swap;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Copperplate;
+    src: url('../fonts/Copperplate.otf') format('opentype');
+    font-display: swap;
+    font-weight: 500;
+}
+body {
+    color: #000;
+    font-family: "Helvetica Neue";
+
+}
+main{
+    @apply min-h-[calc(100vh-160px)]
+}
+
+.alga {
+    font-family: Alga;
+}
+.helvetica-neue{
+    font-family: "Helvetica Neue";
+}
+
+.copperplate{
+    font-family: Copperplate;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+.custom-shadow{
+    box-shadow: 1px 1px 2px 0px rgba(255, 255, 255, 0.30) inset, -1px -1px 2px 0px rgba(230, 230, 230, 0.50) inset, -5px 5px 10px 0px rgba(230, 230, 230, 0.20), 5px -5px 10px 0px rgba(230, 230, 230, 0.20), -5px -5px 10px 0px rgba(255, 255, 255, 0.90), 5px 5px 13px 0px rgba(230, 230, 230, 0.90);
+}
