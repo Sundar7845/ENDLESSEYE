@@ -19,3 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('saveproduct', [App\Http\Controllers\Api\ProductController::class, 'saveProduct'])
     ->name('api.saveproduct');
+Route::post('updateproductimage', [App\Http\Controllers\Api\ProductController::class, 'updateProductImage'])
+    ->name('api.updateproductimage');

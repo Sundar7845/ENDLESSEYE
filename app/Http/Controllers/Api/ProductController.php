@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
@@ -224,6 +225,48 @@ class ProductController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => 'Error: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateProductImage(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'ITEMID' => 'required', // Adjust validation rules as needed
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['status' => false, 'message' => implode(",", $validator->errors()->all())], 400);
+            }
+
+            $itemId = $request->ITEMID;
+
+            $updated = Product::where('ITEMID', $itemId)
+                ->update(['ITEMIMAGE' => $request->ITEMIMAGE]);
+
+            if ($updated) {
+                return response()->json([
+                    'itemId' => $itemId,
+                    'status' => true,
+                    'message' => 'Product image updated successfully'
+                ], 200);
+            } else {
+                return response()->json([
+                    'itemId' => $itemId,
+                    'status' => false,
+                    'message' => 'There is not any product with this ITEMID'
+                ], 400); // Bad Request or 404 depending on context
+            }
+        } catch (Exception $e) {
+            // Optional: log the error for debugging
+            Log::error('Product image update error: ' . $e->getMessage());
+
+            return response()->json([
+                'itemId' => $itemId,
+                'status' => false,
+                'message' => 'An error occurred while updating the product image',
+                'error' => $e->getMessage(), // You can remove this in production
             ], 500);
         }
     }
