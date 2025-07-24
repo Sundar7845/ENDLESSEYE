@@ -11,6 +11,7 @@ class Product extends Model
 
     protected $fillable = [
         'ITEMID',
+        'ITEMIMAGE',
         'SuppRefNo',
         'Suppliers_Ref_Number',
         'ITEMNAME',

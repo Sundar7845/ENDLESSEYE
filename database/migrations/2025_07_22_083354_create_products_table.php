@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->text('ITEMID')->nullable();
+            $table->longText('ITEMIMAGE')->nullable();
             $table->text('SuppRefNo')->nullable();
             $table->text('Suppliers_Ref_Number')->nullable();
             $table->text('ITEMNAME');
