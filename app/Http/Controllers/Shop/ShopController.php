@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -17,14 +18,16 @@ class ShopController extends Controller
         return view('shop.necklace');
     }
 
-    function product()
+    function product($id)
     {
-        return view('shop.product');
+        $product = Product::where('id', $id)->first();
+        return view('shop.product', compact('product'));
     }
 
     function shop()
     {
-        return view('shop.shop');
+        $product = Product::get();
+        return view('shop.shop', compact('product'));
     }
 
     function categories()
