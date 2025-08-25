@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('shop', [App\Http\Controllers\Shop\ShopController::class, 'shop'])->name('shop');
-Route::get('/product/{id}', [App\Http\Controllers\Shop\ShopController::class, 'product'])->name('shop.product');
+Route::get('/product/{id?}', [App\Http\Controllers\Shop\ShopController::class, 'product'])->name('shop.product');
 Route::get('necklace', [App\Http\Controllers\Shop\ShopController::class, 'necklace'])->name('shop.necklace');
 Route::get('haram', [App\Http\Controllers\Shop\ShopController::class, 'haram'])->name('shop.haram');
 Route::get('category', [App\Http\Controllers\Shop\ShopController::class, 'categories'])->name('shop.categories');
