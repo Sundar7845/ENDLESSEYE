@@ -235,7 +235,7 @@
                             <div class="flex justify-center gap-3 border-b border-gray-200 pb-4">
                                 <div class="flex flex-col text-center items-center border-r pr-3 border-gray-200">
                                     <div class="text-xs text-[#4E4E4E] mt-1">Gold Wt</div>
-                                    <div class="text-xs font-medium">{{$item->Net_Weight}}g</div>
+                                    <div class="text-xs font-medium">{{ $item->Net_Weight }}g</div>
                                 </div>
                                 <div class="flex flex-col text-center items-center border-r pr-3 border-gray-200">
                                     <div class="text-xs text-[#4E4E4E] mt-1">Size</div>
@@ -253,6 +253,10 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <!-- Pagination Links -->
+            <div class="mt-6">
+                {{ $product->links('pagination::tailwind') }}
             </div>
         </section>
     </main>

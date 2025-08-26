@@ -26,7 +26,7 @@ class ShopController extends Controller
 
     function shop()
     {
-        $product = Product::get();
+        $product = Product::paginate(18);
         return view('shop.shop', compact('product'));
     }
 
